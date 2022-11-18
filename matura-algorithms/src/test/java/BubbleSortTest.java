@@ -1,5 +1,3 @@
-package SortAlgorithm;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +12,7 @@ public class BubbleSortTest {
 
         // When
         boolean isArraySorted = Arrays.equals(
-            BubbleSort.sort(arrayToSort),
+            SortAlgorithm.bubbleSort(arrayToSort),
             new int[]{2, 2, 4, 5, 6, 8});
 
         // Then
@@ -30,7 +28,7 @@ public class BubbleSortTest {
 
         // When
         boolean isArraySorted = Arrays.equals(
-            BubbleSort.sort(arrayToSort),
+            SortAlgorithm.bubbleSort(arrayToSort),
             new int[]{
                 1, 1, 2, 2, 2, 3, 3, 4, 4, 5,
                 5, 5, 6, 7, 7, 8, 8, 8, 9, 9});
