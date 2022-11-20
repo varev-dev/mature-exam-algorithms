@@ -23,4 +23,22 @@ public class MathAlgorithm {
         return numberOne * multiplierOne;
     }
 
+    public static int greatestCommonDivisor(int numberOne, int numberTwo) {
+        if (numberOne == numberTwo)
+            return numberOne;
+
+        if (numberOne < numberTwo) {
+            int temp = numberOne;
+            numberOne = numberTwo;
+            numberTwo = temp;
+        }
+
+        for (int divisor = numberTwo; divisor >= 2; divisor--) {
+            if (numberOne % divisor == 0 && numberTwo % divisor == 0)
+                return divisor;
+        }
+
+        return 1;
+    }
+
 }
