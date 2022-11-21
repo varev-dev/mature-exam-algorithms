@@ -1,11 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class LowestCommonMultipleAlgorithmTest {
-
-    /* LCM TEST */
 
     @Test
     public void LCMOfOneAndOne() {
@@ -45,18 +41,4 @@ public class LowestCommonMultipleAlgorithmTest {
         });
     }
 
-    /* GCD TEST */
-
-    @Test
-    public void GCDOfFifteenAndNinetyThree() {
-        // Given
-        int numberOne = 15;
-        int numberTwo = 93;
-
-        // When
-        boolean result = MathAlgorithm.greatestCommonDivisor(numberOne, numberTwo) == 3;
-
-        // Then
-        Assert.assertTrue(result);
-    }
 }
