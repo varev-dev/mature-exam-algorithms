@@ -1,9 +1,24 @@
-import javax.management.BadAttributeValueExpException;
-import java.awt.image.ImagingOpException;
-import java.io.IOException;
-
 public class MathAlgorithm {
 
+    public static boolean isPrime(int number) {
+        if (number < 1)
+            throw new ArithmeticException();
+
+        int divisor = 2;
+
+        while (divisor < Math.ceil(number / 2.0)) {
+            if (number % divisor == 0)
+                return false;
+            else {
+                if (divisor == 2)
+                    divisor++;
+                else
+                    divisor += 2;
+            }
+        }
+
+        return true;
+    }
     public static int lowestCommonMultiple(int numberOne, int numberTwo) throws ArithmeticException {
         if (numberOne * numberTwo < 0)
             throw new ArithmeticException("Numbers must have same characters (+/-)");
