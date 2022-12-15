@@ -19,6 +19,7 @@ public class MathAlgorithm {
 
         return true;
     }
+    
     public static int lowestCommonMultiple(int numberOne, int numberTwo) throws ArithmeticException {
         if (numberOne * numberTwo < 0)
             throw new ArithmeticException("Numbers must have same characters (+/-)");
