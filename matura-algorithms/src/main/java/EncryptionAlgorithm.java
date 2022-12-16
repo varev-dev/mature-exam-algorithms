@@ -7,29 +7,42 @@ public class EncryptionAlgorithm {
         if (text.length() < 1 || encryptionValue == 0)
             return text;
 
-        return encryptText(text, encryptionValue);
-    }
-
-    private static String encryptText(String text, int encryptionValue) {
         StringBuilder outputBuilder = new StringBuilder();
 
         for (int i = 0; i < text.length(); i++) {
             outputBuilder.append(
-                encryptCharacter(text.charAt(i), encryptionValue)
+                caesarEncryptCharacter(text.charAt(i), encryptionValue)
             );
         }
 
         return outputBuilder.toString();
     }
 
-    private static char encryptCharacter(char toEncrypt, int encryptionValue) {
+    private static char caesarEncryptCharacter(char toEncrypt, int encryptionValue) {
         if (encryptionValue == 0)
             return toEncrypt;
 
-        return encryptCharacter(
+        return caesarEncryptCharacter(
             (toEncrypt + 1 > MAXIMAL_ASCII_CHARACTER_VALUE ?
                 MINIMAL_ASCII_CHARACTER_VALUE : (char) (toEncrypt + 1)),
             encryptionValue - 1);
+    }
+
+    public static String gaderypolukiCipher(String text) {
+        String[] substitutions = "GA DE RY PO LU KI".split(" ");
+        char[] toEncrypt = text.toCharArray();
+
+        for (int i = 0; i < toEncrypt.length; i++) {
+            for (String sub : substitutions) {
+                if (sub.contains(String.valueOf(toEncrypt[i]))) {
+                    char[] currentCode = sub.toCharArray();
+                    toEncrypt[i] = currentCode[0] == toEncrypt[i] ? currentCode[1] : currentCode[0];
+                    break;
+                }
+            }
+        }
+
+        return String.valueOf(toEncrypt);
     }
 
 }
