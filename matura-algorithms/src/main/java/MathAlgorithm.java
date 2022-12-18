@@ -57,4 +57,19 @@ public class MathAlgorithm {
         return 1;
     }
 
+    public static int minValueIdFromArray(int[] array) {
+        if (array.length == 0)
+            throw new ArithmeticException("Array size == 0");
+        
+        int minId = 0;
+
+        for (int elementId = 1; elementId < array.length; elementId++) {
+            if (array[minId] > array[elementId])
+                minId = elementId;
+        }
+        
+        return minId;
+    }
+
+
 }
