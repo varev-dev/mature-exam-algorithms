@@ -71,5 +71,19 @@ public class MathAlgorithm {
         return minId;
     }
 
+    public static int maxValueIdFromArray(int[] array) {
+        if (array.length == 0)
+            throw new ArithmeticException("Array size == 0");
+
+        int maxId = 0;
+
+        for (int elementId = 1; elementId < array.length; elementId++) {
+            if (array[maxId] < array[elementId])
+                maxId = elementId;
+        }
+
+        return maxId;
+    }
+
 
 }
