@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class EncryptionAlgorithm {
 
     private static final int MINIMAL_ASCII_CHARACTER_VALUE = 20;
@@ -43,6 +45,34 @@ public class EncryptionAlgorithm {
         }
 
         return String.valueOf(toEncrypt);
+    }
+
+    public static String transpositionCipher(String text) {
+        String[] words = text.toUpperCase().split(" ");
+        StringBuilder output = new StringBuilder();
+        
+        for (int i = 0; i < words.length; i++) {
+            words[i] = TextAlgorithm.cleanText(words[i]);
+
+            char[] characters = words[i].toCharArray();
+
+            for (int j = 0; j < characters.length; j += 2) {
+                if (j + 1 < characters.length) {
+                    char temp = characters[j];
+                    characters[j] = characters[j + 1];
+                    characters[j + 1] = temp;
+                }
+            }
+
+            words[i] = String.valueOf(characters);
+
+            output.append(words[i]);
+
+            if (i + 2 < words.length)
+                output.append(" ");
+        }
+
+        return output.toString();
     }
 
 }
