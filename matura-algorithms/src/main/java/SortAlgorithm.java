@@ -50,8 +50,6 @@ public class SortAlgorithm {
     }
 
     public static int[] mergeSort(int[] array) {
-        System.out.println(Arrays.toString(array));
-
         if (array.length < 2)
             return array;
 
