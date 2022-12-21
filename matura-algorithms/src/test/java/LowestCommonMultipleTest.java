@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LowestCommonMultipleAlgorithmTest {
+public class LowestCommonMultipleTest {
 
     @Test
     public void LCMOfOneAndOne() {

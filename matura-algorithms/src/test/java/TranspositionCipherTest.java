@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class transpositionCipherTest {
+public class TranspositionCipherTest {
 
     @Test
     public void testEncryptingSingleWord() {
