@@ -1,5 +1,7 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class SortAlgorithm {
 
@@ -77,15 +79,27 @@ public class SortAlgorithm {
                 mergedArray[currentIndex] = firstArray[firstArrayIterator++];
         }
 
-        while (firstArrayIterator != firstArray.length) {
-            mergedArray[firstArrayIterator + secondArrayIterator] = firstArray[firstArrayIterator++];
-        }
 
-        while (secondArrayIterator != secondArray.length) {
-            mergedArray[firstArrayIterator + secondArrayIterator] = secondArray[secondArrayIterator++];
-        }
+        mergedArray = appendArrayToArrayFromIndex(mergedArray, firstArrayIterator + secondArrayIterator,
+            Arrays.copyOfRange(firstArray, firstArrayIterator, firstArray.length)
+        );
+
+        mergedArray = appendArrayToArrayFromIndex(mergedArray, firstArray.length + secondArrayIterator,
+            Arrays.copyOfRange(secondArray, secondArrayIterator, secondArray.length)
+        );
 
         return mergedArray;
+    }
+
+    private static int[] appendArrayToArrayFromIndex(int[] array, int currentIndex, int[] arrayToBeAppended) {
+        if (array.length < currentIndex + arrayToBeAppended.length)
+            throw new ArrayIndexOutOfBoundsException("Array is not capable to handle every element");
+
+        for (int value : arrayToBeAppended) {
+            array[currentIndex++] = value;
+        }
+
+        return array;
     }
 
 }
