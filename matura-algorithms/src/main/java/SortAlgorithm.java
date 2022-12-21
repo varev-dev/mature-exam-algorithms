@@ -49,4 +49,45 @@ public class SortAlgorithm {
         return mergedArray.toArray(new Integer[0]);
     }
 
+    public static int[] mergeSort(int[] array) {
+        System.out.println(Arrays.toString(array));
+
+        if (array.length < 2)
+            return array;
+
+        int[] left = mergeSort(
+            Arrays.copyOfRange(array, 0, (array.length / 2))
+        );
+        int[] right = mergeSort(
+            Arrays.copyOfRange(array, (array.length / 2), array.length)
+        );
+
+        //return new int[]{};
+        return mergeTwoArrays(left, right);
+    }
+
+    private static int[] mergeTwoArrays(int[] firstArray, int[] secondArray) {
+        int[] mergedArray = new int[firstArray.length + secondArray.length];
+        int firstArrayIterator = 0, secondArrayIterator = 0;
+
+        while (firstArrayIterator != firstArray.length && secondArrayIterator != secondArray.length) {
+            int currentIndex = firstArrayIterator + secondArrayIterator;
+
+            if (firstArray[firstArrayIterator] >= secondArray[secondArrayIterator])
+                mergedArray[currentIndex] = secondArray[secondArrayIterator++];
+            else
+                mergedArray[currentIndex] = firstArray[firstArrayIterator++];
+        }
+
+        while (firstArrayIterator != firstArray.length) {
+            mergedArray[firstArrayIterator + secondArrayIterator] = firstArray[firstArrayIterator++];
+        }
+
+        while (secondArrayIterator != secondArray.length) {
+            mergedArray[firstArrayIterator + secondArrayIterator] = secondArray[secondArrayIterator++];
+        }
+
+        return mergedArray;
+    }
+
 }
