@@ -6,6 +6,48 @@ import java.util.TreeMap;
 
 public class CountingSortTest {
 
+    // Counting sort
+    @Test
+    public void countingSortEmptyArray() {
+        // Given
+        int[] input = new int[]{};
+
+        // When
+        int[] output = SortAlgorithm.countingSort(input);
+        boolean result = Arrays.equals(output, new int[]{});
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void countingSortArrayWithDifferentValues() {
+        // Given
+        int[] input = new int[]{5, 3, 2, 9, 4, 1};
+
+        // When
+        int[] expectedOutput = new int[]{1, 2, 3, 4, 5, 9};
+        int[] output = SortAlgorithm.countingSort(input);
+        boolean result = Arrays.equals(output, expectedOutput);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void countingSortArrayWithSameValues() {
+        // Given
+        int[] input = new int[]{5, 3, 2, 1, 1, 4, 5, 5};
+
+        // When
+        int[] expectedOutput = new int[]{1, 1, 2, 3, 4, 5, 5, 5};
+        int[] output = SortAlgorithm.countingSort(input);
+        boolean result = Arrays.equals(output, expectedOutput);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
     // Counting values in array
     @Test
     public void countingInNull() {
