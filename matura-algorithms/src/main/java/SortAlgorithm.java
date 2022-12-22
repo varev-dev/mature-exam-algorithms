@@ -104,7 +104,9 @@ public class SortAlgorithm {
     }
 
     public static int[] countingSort(int[] array) {
-        
+        var elementsInArray = countElementsInArray(array);
+        array = buildArrayFromCountedElements(elementsInArray);
+
         return array;
     }
 
