@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.TreeMap;
 
 public class CountingSortTest {
-
 
     // Counting values in array
     @Test
@@ -69,5 +69,56 @@ public class CountingSortTest {
         // Then
         Assert.assertTrue(result);
     }
+
+    // Building array from map of counted elements
+    @Test
+    public void buildingArrayFromEmptyMap() {
+        // Given
+        var input = new TreeMap<Integer, Integer>();
+
+        // When
+        int[] output = SortAlgorithm.buildArrayFromCountedElements(input);
+        boolean result = Arrays.equals(output, new int[]{});
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void buildingArrayFromMapWithSameValues() {
+        // Given
+        var input = new TreeMap<Integer, Integer>(){{
+            put(4, 2);
+            put(1, 3);
+            put(2, 1);
+        }};
+
+        // When
+        int[] expectedOutput = new int[]{1, 1, 1, 2, 4, 4};
+        int[] output = SortAlgorithm.buildArrayFromCountedElements(input);
+        boolean result = Arrays.equals(output, expectedOutput);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void buildingArrayFromMapWithDifferentValues() {
+        // Given
+        var input = new TreeMap<Integer, Integer>(){{
+            put(4, 1);
+            put(1, 1);
+            put(2, 1);
+        }};
+
+        // When
+        int[] expectedOutput = new int[]{1, 2, 4};
+        int[] output = SortAlgorithm.buildArrayFromCountedElements(input);
+        boolean result = Arrays.equals(output, expectedOutput);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
 
 }
