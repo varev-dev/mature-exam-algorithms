@@ -8,6 +8,18 @@ public class CountingSortTest {
 
     // Counting values in array
     @Test
+    public void countingInNull() {
+        // Given
+        int[] input = null;
+
+        // When
+        var output = SortAlgorithm.countElementsInArray(input);
+        boolean result = new TreeMap<Integer, Integer>().equals(output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+    @Test
     public void countingInEmptyArray() {
         // Given
         int[] input = new int[]{};
