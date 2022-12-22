@@ -1,6 +1,8 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 
 public class SortAlgorithm {
@@ -100,6 +102,26 @@ public class SortAlgorithm {
         }
 
         return array;
+    }
+
+    public static int[] countingSort(int[] array) {
+        return array;
+    }
+
+    public static TreeMap<Integer, Integer> countElementsInArray(int[] array) {
+        var values = new TreeMap<Integer, Integer>();
+
+        if (array == null)
+            return values;
+
+        for (int value : array) {
+            if (values.containsKey(value))
+                values.put(value, values.get(value) + 1);
+            else
+                values.put(value, 1);
+        }
+
+        return values;
     }
 
 }
