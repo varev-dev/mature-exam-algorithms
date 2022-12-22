@@ -81,7 +81,6 @@ public class SortAlgorithm {
                 mergedArray[currentIndex] = firstArray[firstArrayIterator++];
         }
 
-
         mergedArray = appendArrayToArrayFromIndex(mergedArray, firstArrayIterator + secondArrayIterator,
             Arrays.copyOfRange(firstArray, firstArrayIterator, firstArray.length)
         );
@@ -105,6 +104,7 @@ public class SortAlgorithm {
     }
 
     public static int[] countingSort(int[] array) {
+        
         return array;
     }
 
@@ -122,6 +122,23 @@ public class SortAlgorithm {
         }
 
         return values;
+    }
+
+    public static int[] buildArrayFromCountedElements(TreeMap<Integer, Integer> values) {
+        int[] array = new int[values.values().stream().reduce(0, Integer::sum)];
+        int index = 0;
+
+        while (!values.isEmpty()) {
+            array[index] = values.firstKey();
+
+            if (values.get(array[index]) <= 1)
+                values.remove(array[index]);
+            else
+                values.put(array[index], values.get(array[index]) - 1);
+            index++;
+        }
+
+        return array;
     }
 
 }
