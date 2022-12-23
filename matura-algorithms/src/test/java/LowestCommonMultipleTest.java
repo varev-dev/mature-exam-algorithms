@@ -9,7 +9,7 @@ public class LowestCommonMultipleTest {
         int number = 1;
 
         // When
-        boolean lcm = MathAlgorithm.lowestCommonMultiple(number, number) == number;
+        boolean lcm = NumericalAlgorithms.lowestCommonMultiple(number, number) == number;
 
         // Then
         Assert.assertTrue(lcm);
@@ -22,7 +22,7 @@ public class LowestCommonMultipleTest {
         int numberTwo = 3;
 
         // When
-        boolean lcm = MathAlgorithm.lowestCommonMultiple(numberOne, numberTwo) == 15;
+        boolean lcm = NumericalAlgorithms.lowestCommonMultiple(numberOne, numberTwo) == 15;
 
         // Then
         Assert.assertTrue(lcm);
@@ -37,7 +37,7 @@ public class LowestCommonMultipleTest {
         // When
         // Then
         Assert.assertThrows(ArithmeticException.class, () -> {
-            int result = MathAlgorithm.lowestCommonMultiple(numberOne, numberTwo);
+            int result = NumericalAlgorithms.lowestCommonMultiple(numberOne, numberTwo);
         });
     }
 

@@ -9,7 +9,7 @@ public class IsPrimeTest {
         int number = 53;
 
         // When
-        boolean result = MathAlgorithm.isPrime(number);
+        boolean result = NumericalAlgorithms.isPrime(number);
 
         // Then
         Assert.assertTrue(result);
