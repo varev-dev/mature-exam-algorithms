@@ -76,4 +76,20 @@ public class IntegerFactorizationTest {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void integerFactorizationOfThirtySix() {
+        // Given
+        int value = 36;
+
+        // When
+        var expectedOutput = new TreeMap<Integer, Integer>(){{
+            put(2, 2);
+            put(3, 2);
+        }};
+        boolean result = NumericalAlgorithms.integerFactorization(value).equals(expectedOutput);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
 }
