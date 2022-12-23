@@ -1,4 +1,44 @@
+import com.sun.source.tree.Tree;
+
+import java.util.TreeMap;
+
 public class NumericalAlgorithms {
+
+    public static TreeMap<Integer, Integer> integerFactorization(int number) {
+        if (number == 0)
+            return new TreeMap<>();
+
+        var factors = new TreeMap<Integer, Integer>();
+
+        while (number % 2 == 0) {
+            factors = overrideElementToTreeMap(factors, 2);
+            number /= 2;
+        }
+
+        while (number != 1 && number != -1) {
+            for (int factor = 3; factor <= Math.round(number * 1.0 / 2); factor += 2) {
+                if (number % factor == 0) {
+                    factors = overrideElementToTreeMap(factors, factor);
+                    number /= factor;
+                    break;
+                }
+            }
+
+            overrideElementToTreeMap(factors, number);
+            number /= number;
+        }
+
+        return factors;
+    }
+
+    public static TreeMap<Integer, Integer> overrideElementToTreeMap(TreeMap<Integer, Integer> map, int value) {
+        if (map.containsKey(value))
+            map.put(value, map.get(value) + 1);
+        else
+            map.put(value, 1);
+
+        return map;
+    }
 
     public static int getFibonacciSequenceElement(int elementId) {
         if (elementId == 0)
