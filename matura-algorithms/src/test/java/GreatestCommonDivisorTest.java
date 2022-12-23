@@ -10,7 +10,7 @@ public class GreatestCommonDivisorTest {
         int numberTwo = 93;
 
         // When
-        boolean result = MathAlgorithm.greatestCommonDivisor(numberOne, numberTwo) == 3;
+        boolean result = NumericalAlgorithms.greatestCommonDivisor(numberOne, numberTwo) == 3;
 
         // Then
         Assert.assertTrue(result);
