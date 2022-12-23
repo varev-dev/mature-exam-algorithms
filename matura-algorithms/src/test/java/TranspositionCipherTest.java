@@ -13,7 +13,6 @@ public class TranspositionCipherTest {
         String encrypted = EncryptionAlgorithm.transpositionCipher(input);
         boolean isOutputRight = encrypted.equals(output);
 
-        System.out.println(encrypted);
         // Then
         Assert.assertTrue(isOutputRight);
     }
