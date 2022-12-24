@@ -110,7 +110,6 @@ public class QuadraticEquationTest {
         double[] output = NumericalAlgorithms.getQuadraticEquationRoots(a, b, c);
         boolean result = Arrays.equals(expectedOutput, output);
 
-        System.out.println(Arrays.toString(output));
         // Then
         Assert.assertTrue(result);
     }
