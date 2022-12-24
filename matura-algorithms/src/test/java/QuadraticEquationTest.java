@@ -4,6 +4,20 @@ import org.junit.Test;
 public class QuadraticEquationTest {
 
     @Test
+    public void testEquationIsNotQuadratic() {
+        // Given
+        int a = 0;
+        int b = 1;
+        int c = 2;
+
+        // When
+        // Then
+        Assert.assertThrows(ArithmeticException.class, () -> {
+           NumericalAlgorithms.calculateDelta(a, b, c);
+        });
+    }
+    
+    @Test
     public void testCalculatingDeltaLowerThanZero() {
         // Given
         int a = 2;
@@ -15,7 +29,6 @@ public class QuadraticEquationTest {
         double output = NumericalAlgorithms.calculateDelta(a, b, c);
         boolean result = output == expectedOutput;
 
-        System.out.println(output);
         // Then
         Assert.assertTrue(result);
     }
@@ -32,7 +45,6 @@ public class QuadraticEquationTest {
         double output = NumericalAlgorithms.calculateDelta(a, b, c);
         boolean result = output == expectedOutput;
 
-        System.out.println(output);
         // Then
         Assert.assertTrue(result);
     }
@@ -49,7 +61,6 @@ public class QuadraticEquationTest {
         double output = NumericalAlgorithms.calculateDelta(a, b, c);
         boolean result = output == expectedOutput;
 
-        System.out.println(output);
         // Then
         Assert.assertTrue(result);
     }
