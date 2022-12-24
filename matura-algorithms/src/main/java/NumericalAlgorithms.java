@@ -1,8 +1,15 @@
-import com.sun.source.tree.Tree;
-
 import java.util.TreeMap;
 
 public class NumericalAlgorithms {
+
+
+
+    public static double calculateDelta(int a, int b, int c) {
+        if (a == 0)
+            throw new ArithmeticException("a(x^2) == 0");
+
+        return (double) Math.round((Math.pow(b, 2) - (4*a*c)) * 100) / 100;
+    }
 
     public static TreeMap<Integer, Integer> integerFactorization(int number) {
         if (number == 0)
