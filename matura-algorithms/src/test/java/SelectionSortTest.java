@@ -80,7 +80,7 @@ public class SelectionSortTest {
         int[] array = new int[]{2, 0, 1};
 
         // When
-        int[] expectedOutput = new int[]{1, 2};
+        int[] expectedOutput = new int[]{2, 1, 0};
         int[] output = SortAlgorithm.swapValuesInArray(array, firstIndex, secondIndex);
         boolean result = Arrays.equals(expectedOutput, output);
 
@@ -122,7 +122,7 @@ public class SelectionSortTest {
         int[] array = new int[]{5, 3, 0, 1, 9, 2, 4, 3, 6, 7, 8};
 
         // When
-        int[] expectedOutput = new int[]{3, 5};
+        int[] expectedOutput = new int[]{0, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9};
         int[] output = SortAlgorithm.selectionSort(array);
         boolean result = Arrays.equals(expectedOutput, output);
 
