@@ -7,6 +7,14 @@ import java.util.stream.Stream;
 
 public class SortAlgorithm {
 
+    public static int[] selectionSort(int[] array) {
+        return array;
+    }
+
+    public static int findMinValueIndexInArrayFromIndex(int[] array, int start) {
+        return start;
+    }
+
     public static int[] bubbleSort(int[] arrayToSort) {
         for (int i = 0; i < arrayToSort.length; i++) {
             for (int j = 0; j < arrayToSort.length - i - 1; j++) {
