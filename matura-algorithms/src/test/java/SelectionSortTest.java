@@ -47,6 +47,48 @@ public class SelectionSortTest {
     }
 
     @Test
+    public void swapElementsIndexOutOfBounds() {
+        // Given
+        int firstIndex = 1, secondIndex = 2;
+        int[] array = new int[]{2, 1};
+
+        // Then
+        Assert.assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            SortAlgorithm.swapValuesInArray(array, firstIndex, secondIndex);
+        });
+    }
+
+    @Test
+    public void swapSameElementInArray() {
+        // Given
+        int firstIndex = 1, secondIndex = 1;
+        int[] array = new int[]{1, 2};
+
+        // When
+        int[] expectedOutput = new int[]{1, 2};
+        int[] output = SortAlgorithm.swapValuesInArray(array, firstIndex, secondIndex);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void swapValuesInArray() {
+        // Given
+        int firstIndex = 1, secondIndex = 2;
+        int[] array = new int[]{2, 0, 1};
+
+        // When
+        int[] expectedOutput = new int[]{1, 2};
+        int[] output = SortAlgorithm.swapValuesInArray(array, firstIndex, secondIndex);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
     public void sortEmptyArray() {
         // Given
         int[] array = new int[]{};
