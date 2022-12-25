@@ -1,13 +1,21 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.stream.Stream;
 
 public class SortAlgorithm {
 
     public static int[] selectionSort(int[] array) {
+        return array;
+    }
+
+    public static int[] swapValuesInArray(int[] array, int firstIndex, int secondIndex) {
+        if (firstIndex >= array.length || secondIndex >= array.length || firstIndex < 0 || secondIndex < 0)
+            throw new ArrayIndexOutOfBoundsException("array doesnt contains this index");
+
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
+
         return array;
     }
 
