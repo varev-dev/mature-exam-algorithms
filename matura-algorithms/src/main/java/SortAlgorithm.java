@@ -5,12 +5,20 @@ import java.util.TreeMap;
 public class SortAlgorithm {
 
     public static int[] selectionSort(int[] array) {
+        if (array == null)
+            return new int[]{};
+
+        for (int i = 0; i < array.length; i++) {
+            int minValueIndex = findMinValueIndexInArrayFromIndex(array, i);
+            array = swapValuesInArray(array, i, minValueIndex);
+        }
+
         return array;
     }
 
     public static int[] swapValuesInArray(int[] array, int firstIndex, int secondIndex) {
         if (firstIndex >= array.length || secondIndex >= array.length || firstIndex < 0 || secondIndex < 0)
-            throw new ArrayIndexOutOfBoundsException("array doesnt contains this index");
+            throw new ArrayIndexOutOfBoundsException("index bound out of array");
 
         int temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
@@ -20,7 +28,14 @@ public class SortAlgorithm {
     }
 
     public static int findMinValueIndexInArrayFromIndex(int[] array, int start) {
-        return start;
+        int min = start;
+
+        for (int i = start + 1; i < array.length; i++) {
+            if (array[min] > array[i])
+                min = i;
+        }
+
+        return min;
     }
 
     public static int[] bubbleSort(int[] arrayToSort) {
