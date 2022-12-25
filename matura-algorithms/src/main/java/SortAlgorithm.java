@@ -1,11 +1,42 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.stream.Stream;
 
 public class SortAlgorithm {
+
+    public static int[] selectionSort(int[] array) {
+        if (array == null)
+            return new int[]{};
+
+        for (int i = 0; i < array.length; i++) {
+            int minValueIndex = findMinValueIndexInArrayFromIndex(array, i);
+            array = swapValuesInArray(array, i, minValueIndex);
+        }
+
+        return array;
+    }
+
+    public static int[] swapValuesInArray(int[] array, int firstIndex, int secondIndex) {
+        if (firstIndex >= array.length || secondIndex >= array.length || firstIndex < 0 || secondIndex < 0)
+            throw new ArrayIndexOutOfBoundsException("index bound out of array");
+
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
+
+        return array;
+    }
+
+    public static int findMinValueIndexInArrayFromIndex(int[] array, int start) {
+        int min = start;
+
+        for (int i = start + 1; i < array.length; i++) {
+            if (array[min] > array[i])
+                min = i;
+        }
+
+        return min;
+    }
 
     public static int[] bubbleSort(int[] arrayToSort) {
         for (int i = 0; i < arrayToSort.length; i++) {
