@@ -5,6 +5,20 @@ import java.util.TreeMap;
 public class SortAlgorithm {
 
     public static int[] insertionSort(int[] array) {
+        if (array == null)
+            return new int[]{};
+
+        for (int i = 1; i < array.length; i++) {
+            int temp = array[i];
+            for (int j = 0; j < i; j++) {
+                if (array[i] < array[j]) {
+                    moveArrayElementsOnePlaceForward(array, j, i - j);
+                    array[j] = temp;
+                    break;
+                }
+            }
+        }
+
         return array;
     }
 
