@@ -3,7 +3,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class InsertionSort {
+public class InsertionSortTest {
 
    @Test
     public void moveElementsInEmptyArray() {
@@ -41,7 +41,7 @@ public class InsertionSort {
     public void moveOneElementInArray() {
         // Given
         int[] array = new int[]{5, 3, 2, 3, 1};
-        int start = 4;
+        int start = 3;
         int amount = 1;
 
         // When

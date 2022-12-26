@@ -9,6 +9,27 @@ public class SortAlgorithm {
     }
 
     public static int[] moveArrayElementsOnePlaceForward(int[] array, int start, int amount) {
+        if (array == null)
+            return new int[]{};
+
+        if (array.length == 0)
+            return new int[]{};
+
+        Integer temp1 = array[start], temp2 = null;
+
+        for (int i = start + 1; i <= start + amount; i++) {
+            if (temp1 != null) {
+                temp2 = array[i];
+                array[i] = temp1;
+                temp1 = null;
+            }
+            else if (temp2 != null) {
+                temp1 = array[i];
+                array[i] = temp2;
+                temp2 = null;
+            }
+        }
+
         return array;
     }
 
