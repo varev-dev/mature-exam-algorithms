@@ -5,7 +5,76 @@ import java.util.Arrays;
 
 public class InsertionSortTest {
 
-   @Test
+    @Test
+    public void sortNull() {
+        // Given
+        int[] array = null;
+
+        // When
+        int[] expectedOutput = new int[]{};
+        int[] output = SortAlgorithm.insertionSort(array);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void sortEmptyArray() {
+        // Given
+        int[] array = new int[]{};
+
+        // When
+        int[] expectedOutput = new int[]{};
+        int[] output = SortAlgorithm.insertionSort(array);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void sortTwoElementArray() {
+        // Given
+        int[] array = new int[]{5, 3};
+
+        // When
+        int[] expectedOutput = new int[]{3, 5};
+        int[] output = SortAlgorithm.insertionSort(array);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void sortSixElementArray() {
+        // Given
+        int[] array = new int[]{5, 3, 4, 1, 6, 6};
+
+        // When
+        int[] expectedOutput = new int[]{1, 3, 4, 5, 6, 6};
+        int[] output = SortAlgorithm.insertionSort(array);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void sortElevenElementArray() {
+        // Given
+        int[] array = new int[]{9, 0, 3, 2, 3, 3, 8, 5, 6, 6, 9};
+
+        // When
+        int[] expectedOutput = new int[]{0, 2, 3, 3, 3, 5, 6, 6, 8, 9, 9};
+        int[] output = SortAlgorithm.insertionSort(array);
+        boolean result = Arrays.equals(expectedOutput, output);
+
+        // Then
+        Assert.assertTrue(result);
+    }
+
+    @Test
     public void moveElementsInEmptyArray() {
         // Given
         int[] array = new int[]{};
