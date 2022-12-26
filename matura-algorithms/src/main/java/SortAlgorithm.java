@@ -4,13 +4,21 @@ import java.util.TreeMap;
 
 public class SortAlgorithm {
 
+    public static int[] insertionSort(int[] array) {
+        return array;
+    }
+
+    public static int[] moveArrayElementsOnePlaceForward(int[] array, int start, int amount) {
+        return array;
+    }
+
     public static int[] selectionSort(int[] array) {
         if (array == null)
             return new int[]{};
 
         for (int i = 0; i < array.length; i++) {
             int minValueIndex = findMinValueIndexInArrayFromIndex(array, i);
-            array = swapValuesInArray(array, i, minValueIndex);
+            swapValuesInArray(array, i, minValueIndex);
         }
 
         return array;
