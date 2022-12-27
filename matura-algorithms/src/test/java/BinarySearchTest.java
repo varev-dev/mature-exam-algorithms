@@ -11,7 +11,7 @@ public class BinarySearchTest {
 
         // When
         int expectedOutput = -1;
-        int output = SearchAlgorithm.binarySearch(array, value);
+        int output = SearchAlgorithm.binarySearch(array, value, 0, array.length - 1);
         boolean result = output == expectedOutput;
 
         // Then
@@ -26,7 +26,7 @@ public class BinarySearchTest {
 
         // When
         int expectedOutput = 0;
-        int output = SearchAlgorithm.binarySearch(array, value);
+        int output = SearchAlgorithm.binarySearch(array, value, 0, array.length - 1);
         boolean result = output == expectedOutput;
 
         // Then
@@ -41,7 +41,7 @@ public class BinarySearchTest {
 
         // When
         int expectedOutput = 2;
-        int output = SearchAlgorithm.binarySearch(array, value);
+        int output = SearchAlgorithm.binarySearch(array, value, 0, array.length - 1);
         boolean result = output == expectedOutput;
 
         // Then
@@ -56,7 +56,7 @@ public class BinarySearchTest {
 
         // When
         int expectedOutput = -1;
-        int output = SearchAlgorithm.binarySearch(array, value);
+        int output = SearchAlgorithm.binarySearch(array, value, 0, array.length - 1);
         boolean result = output == expectedOutput;
 
         // Then
