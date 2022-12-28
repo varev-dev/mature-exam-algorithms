@@ -2,6 +2,10 @@ import java.util.TreeMap;
 
 public class NumericalAlgorithms {
 
+    public static boolean isNumberPerfect(int number) {
+        return false;
+    }
+
     public static double[] getQuadraticEquationRoots(int a, int b, int c) {
         if (a == 0)
             throw new ArithmeticException("a(x^2) == 0");
