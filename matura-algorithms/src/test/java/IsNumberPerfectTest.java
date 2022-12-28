@@ -37,7 +37,7 @@ public class IsNumberPerfectTest {
         int number = 12;
 
         // When
-        boolean expectedResult = true;
+        boolean expectedResult = false;
         boolean output = NumericalAlgorithms.isNumberPerfect(number);
         boolean result = expectedResult == output;
 
