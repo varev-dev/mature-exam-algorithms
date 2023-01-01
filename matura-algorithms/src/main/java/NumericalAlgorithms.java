@@ -137,21 +137,10 @@ public class NumericalAlgorithms {
     }
 
     public static int greatestCommonDivisor(int numberOne, int numberTwo) {
-        if (numberOne == numberTwo)
+        if (numberTwo == 0)
             return numberOne;
 
-        if (numberOne < numberTwo) {
-            int temp = numberOne;
-            numberOne = numberTwo;
-            numberTwo = temp;
-        }
-
-        for (int divisor = numberTwo; divisor >= 2; divisor--) {
-            if (numberOne % divisor == 0 && numberTwo % divisor == 0)
-                return divisor;
-        }
-
-        return 1;
+        return greatestCommonDivisor(numberTwo, numberOne % numberTwo);
     }
 
     public static int minValueIdFromArray(int[] array) {

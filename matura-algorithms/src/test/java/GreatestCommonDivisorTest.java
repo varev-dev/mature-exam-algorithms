@@ -15,5 +15,5 @@ public class GreatestCommonDivisorTest {
         // Then
         Assert.assertTrue(result);
     }
-
+    
 }
