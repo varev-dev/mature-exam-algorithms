@@ -1,4 +1,7 @@
+import java.util.Collections;
+
 public class ConversionAlgorithm {
+
     private static final char[] numberSystemElements = {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -33,4 +36,27 @@ public class ConversionAlgorithm {
 
         return output.toString();
     }
+
+    public static int convertToDecimal(String value, int system) {
+        int convertedValue = 0;
+        char[] elements = value.toCharArray();
+
+        for (int index = 0; index < elements.length; index++) {
+            int power = elements.length - 1 - index;
+
+            convertedValue += Math.pow(system, power) * getCharacterIndex(elements[index]);
+        }
+
+        return convertedValue;
+    }
+
+    private static int getCharacterIndex(char character) {
+        for (int i = 0; i < numberSystemElements.length; i++) {
+            if (character == numberSystemElements[i])
+                return i;
+        }
+
+        return -1;
+    }
+
 }
