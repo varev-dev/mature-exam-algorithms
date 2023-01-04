@@ -1,5 +1,3 @@
-import java.util.Collections;
-
 public class ConversionAlgorithm {
 
     private static final char[] numberSystemElements = {
@@ -9,7 +7,7 @@ public class ConversionAlgorithm {
         'U', 'V', 'W', 'X', 'Y', 'Z'
     };
 
-    private static String decimalToOtherSystemConverter(int value, int system) {
+    public static String decimalToOtherSystemConverter(int value, int system) {
         if (system < 2 || system > numberSystemElements.length)
             throw new NumberFormatException("number system have to be in range <2;36>");
 
